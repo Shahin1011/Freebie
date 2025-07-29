@@ -94,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Get.toNamed(AppRoutes.loginScreen);
                   },
                   title: "Create an Account",
-                  fontSize: 16,
+                  fontSize: 15,
                   borderRadius: 10,
                 ),
 
