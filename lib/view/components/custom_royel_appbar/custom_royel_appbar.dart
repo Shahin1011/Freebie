@@ -32,24 +32,29 @@ class CustomRoyelAppbar extends StatelessWidget implements PreferredSizeWidget {
       scrolledUnderElevation: 0,
       backgroundColor: backgroundColor ?? Colors.transparent, // ✅ Previously transparent
       systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith( // ✅ Added for status bar
-       // statusBarColor: AppColors.white,
+        statusBarColor: AppColors.white,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light,
 
       ),
       actions: [
-        IconButton(
-          onPressed: () {
-            rightOnTap?.call();
-          },
-          icon: rightIcon == null
-              ? const SizedBox()
-              : CustomImage(imageSrc: rightIcon!, height: 32, width: 32),
+        Padding(
+          padding: EdgeInsets.only(right: 16.w),
+          child: IconButton(
+            onPressed: () => rightOnTap?.call(),
+            icon: rightIcon == null
+                ? const SizedBox()
+                : CustomImage(imageSrc: rightIcon!, height: 24, width: 24),
+          ),
         ),
       ],
       leading: leftIcon == true
-          ? BackButton(color: color ?? AppColors.black)
+          ? Padding(
+        padding: EdgeInsets.only(left: 16.w),
+        child: BackButton(color: color ?? AppColors.black),
+      )
           : null,
+
       title: CustomText(
         text: titleName ?? "",
         fontSize: 24.w,

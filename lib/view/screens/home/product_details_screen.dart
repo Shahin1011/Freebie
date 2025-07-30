@@ -14,7 +14,7 @@ class ProductDetailsScreen extends StatefulWidget{
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   final List<String> sizes = ['S', 'M', 'L'];
-  String selectedSize = 'M';
+  String selectedSize = 'S';
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +170,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
                 ElevatedButton.icon(
                   onPressed: (){},
-                  icon: CustomImage(imageSrc: AppIcons.cartIcon),
+                  icon: CustomImage(
+                    imageSrc: AppIcons.cartIcon,
+                    height: 24,
+                    width: 24,
+                  ),
                   label: Text(
                     'Add to Cart',
                     style: TextStyle(

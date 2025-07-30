@@ -31,6 +31,7 @@ class AppIcons {
   static const String accountU = "assets/icons/accountU.png";
 
   static const String cartIcon = "assets/icons/cartIcon.png";
+  static const String bigNotifi = "assets/icons/bigNotification.png";
 
 
 

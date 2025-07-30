@@ -29,7 +29,9 @@ class HomeScreen extends StatelessWidget{
                   color: Colors.black,
                 ),
                 IconButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Get.toNamed(AppRoutes.emptyNotificationScreen);
+                  },
                   icon: CustomImage(
                     imageSrc: AppIcons.notificationIcon,
                     height: 24,
@@ -154,12 +156,22 @@ class HomeScreen extends StatelessWidget{
 
 
 
+
 class FilterBottomSheet extends StatefulWidget {
   @override
   _FilterBottomSheetState createState() => _FilterBottomSheetState();
 }
 
 class _FilterBottomSheetState extends State<FilterBottomSheet> {
+
+  int selectedIndex = 0;
+  final List<String> sortOptions = [
+    'Relevance',
+    'Price: Low - High',
+    'Price: High - Low',
+    'Newest',
+  ];
+
   double _minPrice = 0;
   double _maxPrice = 100;
   RangeValues _priceRange = const RangeValues(0, 100);
@@ -198,7 +210,74 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
             ],
           ),
 
-          SizedBox(height: 14),
+          Divider(
+            thickness: 2,
+            color: AppColors.grey_02,
+          ),
+
+          SizedBox(height: 20,),
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
+              CustomText(
+                text: "Sort By",
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                bottom: 12,
+              ),
+
+              SizedBox(
+                height: 50,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: sortOptions.length,
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  itemBuilder: (context, index) {
+                    final isSelected = selectedIndex == index;
+
+                    return Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            selectedIndex = index;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: isSelected ? Colors.black : Colors.grey[300],
+                          padding: EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 20,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Text(
+                          sortOptions[index],
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: isSelected ? Colors.white : Colors.black,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+
+          Divider(
+            thickness: 2,
+            color: AppColors.grey_02,
+          ),
+
+
+          SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -237,6 +316,11 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 });
               },
             ),
+          ),
+
+          Divider(
+            thickness: 2,
+            color: AppColors.grey_02,
           ),
 
           SizedBox(height: 24),

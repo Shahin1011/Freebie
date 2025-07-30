@@ -2,6 +2,7 @@
 import 'package:freebie/view/screens/Account/account_screen.dart';
 import 'package:freebie/view/screens/Cart/cart_screen.dart';
 import 'package:freebie/view/screens/auth/reset_password_screen/reset_password_screen.dart';
+import 'package:freebie/view/screens/home/empty_notification_screen.dart';
 import 'package:freebie/view/screens/home/home_screen.dart';
 import 'package:freebie/view/screens/home/product_details_screen.dart';
 import 'package:freebie/view/screens/saved/saved_screen.dart';
@@ -13,6 +14,7 @@ import '../../view/screens/auth/reset_password_screen/verification_screen.dart';
 import '../../view/screens/auth/singup_screen/singup_screen.dart';
 import '../../view/screens/onboarding_screen/onboarding_screen.dart';
 import '../../view/screens/splash_screen/splash_screen.dart';
+
 
 
 class AppRoutes {
@@ -30,6 +32,7 @@ class AppRoutes {
   static const String cartScreen = "/CartScreen";
   static const String accountScreen = "/AccountScreen";
   static const String productDetailsScreen = "/ProductDetailsScreen";
+  static const String emptyNotificationScreen = "/EmptyNotificationScreen";
 
 
 
@@ -53,6 +56,7 @@ class AppRoutes {
     GetPage(name: cartScreen, page: () => CartScreen()),
     GetPage(name: accountScreen, page: () => AccountScreen()),
     GetPage(name: productDetailsScreen, page: () => ProductDetailsScreen()),
+    GetPage(name: emptyNotificationScreen, page: () => EmptyNotificationScreen()),
 
 
 
