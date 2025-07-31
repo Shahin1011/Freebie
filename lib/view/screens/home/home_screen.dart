@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget{
                 ),
                 IconButton(
                   onPressed: (){
-                    Get.toNamed(AppRoutes.emptyNotificationScreen);
+                    Get.toNamed(AppRoutes.notificationScreen);
                   },
                   icon: CustomImage(
                     imageSrc: AppIcons.notificationIcon,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freebie/view/components/custom_nav_bar/navbar.dart';
+import 'package:freebie/view/components/custom_royel_appbar/custom_royel_appbar.dart';
 
 
 class SearchScreen extends StatefulWidget{
@@ -12,10 +13,11 @@ class SearchScreen extends StatefulWidget{
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    CustomRoyelAppbar(
+      leftIcon: true,
+      titleName: "Search",
+    );
     return Scaffold(
-      body: Center(
-        child: Text("SearchScreen!"),
-      ),
       bottomNavigationBar: NavBar(currentIndex: 1),
     );
   }

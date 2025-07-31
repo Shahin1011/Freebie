@@ -25,7 +25,7 @@ class EmptyNotificationScreen extends StatelessWidget{
           children: [
             Divider(
               thickness: 2,
-              color: Colors.grey[300],
+              color: Colors.grey[200],
             ),
 
             SizedBox(height: 214,),
@@ -34,7 +34,7 @@ class EmptyNotificationScreen extends StatelessWidget{
               height: 60,
               width: 60,
             ),
-            SizedBox(height: 24,),
+            SizedBox(height: 20,),
             CustomText(
               text: "You haven’t gotten any\nnotifications yet!",
               fontSize: 20,

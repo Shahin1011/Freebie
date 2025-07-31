@@ -32,6 +32,10 @@ class AppIcons {
 
   static const String cartIcon = "assets/icons/cartIcon.png";
   static const String bigNotifi = "assets/icons/bigNotification.png";
+  static const String disIcon = "assets/icons/discountIcon.png";
+  static const String walletIcon = "assets/icons/walletIcon.png";
+  static const String locationIcon = "assets/icons/locationIcon.png";
+  static const String creditIcon = "assets/icons/creditIcon.png";
 
 
 
