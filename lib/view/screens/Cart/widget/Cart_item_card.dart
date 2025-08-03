@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:freebie/utils/app_colors/app_colors.dart';
+import 'package:freebie/utils/app_icons/app_icons.dart';
 
 class CartItemCard extends StatelessWidget {
   final String title;
@@ -25,57 +27,82 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(left: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 5, offset: Offset(0, 3)),
-        ],
+        border: Border.all(
+          color: AppColors.grey_03,
+          width: 0.2,
+        ),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(imageUrl, width: 70, height: 70, fit: BoxFit.cover),
+            borderRadius: BorderRadius.circular(4),
+            child: imageUrl.startsWith('http')
+                ? Image.network(imageUrl, width: 83, height: 79, fit: BoxFit.cover)
+                : Image.asset(imageUrl, width: 83, height: 79, fit: BoxFit.cover),
           ),
-          const SizedBox(width: 12),
+
+
+          const SizedBox(width: 16),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(title,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-                const SizedBox(height: 4),
-                Text('Size $size', style: TextStyle(color: Colors.grey[600])),
-                const SizedBox(height: 8),
-                Text('\$ $price',
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold)),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                          Text('Size $size', style: TextStyle(color: Colors.grey[600])),
+                        ],
+                      ),
+
+                      SizedBox(height: 18,),
+                      Text('\$ $price',
+                          style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold,
+                          )
+                      ),
+                    ],
+                  ),
+                ),
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.delete_outline, color: Colors.red),
+                      onPressed: onDelete,
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: onDecrease,
+                          icon: Image.asset(AppIcons.abstractIcon),
+                        ),
+                        Text('$quantity', style: const TextStyle(fontSize: 16)),
+                        IconButton(
+                          onPressed: onIncrease,
+                          icon: Image.asset(AppIcons.addIcon),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
               ],
             ),
           ),
-          Column(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.delete_outline, color: Colors.red),
-                onPressed: onDelete,
-              ),
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: onDecrease,
-                    icon: const Icon(Icons.remove),
-                  ),
-                  Text('$quantity', style: const TextStyle(fontSize: 16)),
-                  IconButton(
-                    onPressed: onIncrease,
-                    icon: const Icon(Icons.add),
-                  ),
-                ],
-              ),
-            ],
-          )
+
+
         ],
       ),
     );

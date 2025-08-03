@@ -36,8 +36,9 @@ class AppIcons {
   static const String walletIcon = "assets/icons/walletIcon.png";
   static const String locationIcon = "assets/icons/locationIcon.png";
   static const String creditIcon = "assets/icons/creditIcon.png";
-
-
+  static const String addIcon = "assets/icons/addIcon.png";
+  static const String abstractIcon = "assets/icons/minusIcon.png";
+  static const String deleteIcon = "assets/icons/deleteIcon.png";
 
 
 

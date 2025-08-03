@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:freebie/view/screens/Account/account_screen.dart';
 import 'package:freebie/view/screens/Cart/cart_screen.dart';
+import 'package:freebie/view/screens/Cart/checkout_screen.dart';
 import 'package:freebie/view/screens/auth/reset_password_screen/reset_password_screen.dart';
 import 'package:freebie/view/screens/home/home_screen.dart';
 import 'package:freebie/view/screens/home/notification_screen/empty_notification_screen.dart';
@@ -35,6 +36,7 @@ class AppRoutes {
   static const String productDetailsScreen = "/ProductDetailsScreen";
   static const String emptyNotificationScreen = "/EmptyNotificationScreen";
   static const String notificationScreen = "/NotificationScreen";
+  static const String checkoutScreen = "/CheckoutScreen";
 
 
 
@@ -60,6 +62,7 @@ class AppRoutes {
     GetPage(name: productDetailsScreen, page: () => ProductDetailsScreen()),
     GetPage(name: emptyNotificationScreen, page: () => EmptyNotificationScreen()),
     GetPage(name: notificationScreen, page: () => NotificationScreen()),
+    GetPage(name: checkoutScreen, page: () => CheckoutScreen()),
 
 
 
