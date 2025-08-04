@@ -39,6 +39,7 @@ class AppIcons {
   static const String addIcon = "assets/icons/addIcon.png";
   static const String abstractIcon = "assets/icons/minusIcon.png";
   static const String deleteIcon = "assets/icons/deleteIcon.png";
+  static const String cardIcon = "assets/icons/cardIcon.png";
 
 
 
