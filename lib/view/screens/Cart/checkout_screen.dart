@@ -5,6 +5,8 @@ import 'package:freebie/view/components/custom_button/custom_button.dart';
 import 'package:freebie/view/components/custom_image/custom_image.dart';
 import 'package:freebie/view/components/custom_royel_appbar/custom_royel_appbar.dart';
 import 'package:freebie/view/components/custom_text_field/custom_text_field.dart';
+import 'package:freebie/view/screens/Cart/widget/card_info_box.dart';
+import 'package:freebie/view/screens/Cart/widget/payment_mathod_selector.dart';
 
 
 class CheckoutScreen extends StatefulWidget{
@@ -103,104 +105,34 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           ),
 
           SizedBox(height: 20,),
-          Text(
-            'Payment Method',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          
-          SizedBox(height: 16,),
-          Row(
-
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    )
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomImage(imageSrc: AppIcons.cardIcon, ),
-                      SizedBox(width: 4,),
-                      Text(
-                        'Card',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
+              Text(
+                'Payment Method',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-
-              SizedBox(width: 8,),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                      )
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomImage(imageSrc: AppIcons.cardIcon),
-                      SizedBox(width: 4,),
-                      Text(
-                        'Cash',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-
-              SizedBox(width: 8,),
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                      )
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomImage(imageSrc: AppIcons.cardIcon),
-                      SizedBox(width: 4,),
-                      Text(
-                        'Pay',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
+              SizedBox(height: 16,),
+              PaymentMethodSelector(),
             ],
+          ),
+
+          SizedBox(height: 16,),
+          CardInfoBox(
+            cardNumber: '4123456789012345',
+            onEdit: (){
+              print("Edit tapped");
+            },
+          ),
+
+
+          SizedBox(height: 20,),
+          Divider(
+            thickness: 2,
+            color: AppColors.grey_02,
           ),
 
           SizedBox(height: 20,),
