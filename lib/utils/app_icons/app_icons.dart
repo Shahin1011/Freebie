@@ -40,6 +40,8 @@ class AppIcons {
   static const String abstractIcon = "assets/icons/minusIcon.png";
   static const String deleteIcon = "assets/icons/deleteIcon.png";
   static const String cardIcon = "assets/icons/cardIcon.png";
+  static const String cashIcon = "assets/icons/cashIcon.png";
+  static const String appleIcon = "assets/icons/appleIcon.png";
 
 
 
